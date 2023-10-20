@@ -1,13 +1,17 @@
 <script setup>
-import SidebarMenu from './SidebarMenu.vue'
-import ProfileIcon from './icons/IconProfile.vue'
+import SidebarMenu from './SidebarMenu.vue';
+import ProfileIcon from './icons/IconProfile.vue';
 import { RouterLink } from 'vue-router';
+import { ref } from 'vue'
+const isActive = ref(false)
 </script>
 
 <template>
   <header>
-      <SidebarMenu/>
-      <RouterLink to="/" class="logo">
+    <nav :class="{'active' : isActive}">
+      <SidebarMenu @toggle="() => isActive = !isActive"/>
+    </nav>
+      <RouterLink to="/" class="logo" @click="() => isActive = false">
         EcoApp
       </RouterLink>
       <RouterLink to="/profile" class="profile">

@@ -6,6 +6,7 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from './pages/HomePage.vue';
 import AdvicePage from './pages/AdvicePage.vue';
+import ProfilePage from './pages/ProfilePage.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,9 +16,13 @@ const router = createRouter({
       component: HomePage,
     },
     {
-        path: '/advice',
-        component: AdvicePage,
-      },
+      path: '/advice',
+      component: AdvicePage,
+    },
+    {
+      path: '/profile',
+      component: ProfilePage,
+    },
   ],
 });
 

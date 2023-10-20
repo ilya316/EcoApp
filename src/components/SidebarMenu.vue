@@ -3,30 +3,30 @@ import MenuIcon from './icons/IconMenu.vue'
 import AdviceIcon from './icons/IconAdvice.vue'
 import MapIcon from './icons/IconMap.vue'
 import ExportIcon from './icons/IconExport.vue'
-import { ref } from 'vue'
+
 import { RouterLink } from 'vue-router';
-const isActive = ref(false)
+
 </script>
 
 <template>
-  <button class="menu" :class="{'active' : isActive}" @click="() => isActive = !isActive">
-    <MenuIcon :class="{'active' : isActive}" />
+  <button class="menu" @click="$emit('toggle')">
+    <MenuIcon />
   </button>
-  <ul class="sidebar" :class="{'active' : isActive}">
+  <ul class="sidebar">
     <li>
-      <RouterLink to="/map" @click="() => isActive = !isActive">
+      <RouterLink to="/map" @click="$emit('toggle')">
         <MapIcon />
         <p>Карта мест приёма отходов</p>
       </RouterLink>
     </li>
     <li>
-      <RouterLink to="/advice" @click="() => isActive = !isActive">
+      <RouterLink to="/advice" @click="$emit('toggle')">
         <AdviceIcon />
         <p>Советы по утилизации</p>
       </RouterLink>
     </li>
     <li>
-      <RouterLink to="/export" @click="() => isActive = !isActive">
+      <RouterLink to="/export" @click="$emit('toggle')">
         <ExportIcon />
         <p>Компании по вывозу мусора</p>
       </RouterLink>
@@ -50,7 +50,7 @@ const isActive = ref(false)
   background-color: var(--main-color);
 }
 
-.sidebar.active {
+.active > .sidebar {
   transform: translate(0);
 }
 
