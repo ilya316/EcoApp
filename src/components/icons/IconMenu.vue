@@ -12,13 +12,13 @@
     transform-origin: 50% 50%;
     transition: all 300ms ease-out;
 }
-    .active > .second {
+    .active > .menu > .icon > .second {
         transform: rotate(45deg);
     }
-    .active > .third {
+    .active > .menu > .icon > .third {
         transform: rotate(-45deg);
     }
-    .active > .first, .active > .fourth {
+    .active > .menu > .icon > .first, .active > .menu > .icon > .fourth {
         display: none;
     }
 </style>

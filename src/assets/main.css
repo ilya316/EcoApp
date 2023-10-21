@@ -1,3 +1,22 @@
 @import './reset.css';
 @import './variables.css';
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;700&display=swap');
+
+*, *::after, *::before, p, a{
+    color: var(--text-color);
+    font-family: 'Jura', sans-serif;
+}
+
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }

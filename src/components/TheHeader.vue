@@ -14,7 +14,7 @@ const isActive = ref(false)
       <RouterLink to="/" class="logo" @click="() => isActive = false">
         EcoApp
       </RouterLink>
-      <RouterLink to="/profile" class="profile">
+      <RouterLink to="/profile" class="profile" @click="() => isActive = false">
         <ProfileIcon/>
       </RouterLink>
   </header>
@@ -34,14 +34,12 @@ header {
 
 .logo {
   text-align: center;
-  font-family: 'Jura', sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 3.6px;
   text-decoration: none;
-  color: var(--text-color);
 }
 
 .sidebar {
