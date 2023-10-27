@@ -5,9 +5,10 @@ import App from './App.vue'
 
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from './pages/HomePage.vue';
-import AdvicePage from './pages/AdvicePage.vue';
+import AdvicesPage from './pages/AdvicesPage.vue';
 import ProfilePage from './pages/ProfilePage.vue';
 import LoginPage from './pages/LoginPage.vue';
+import RegisterPage from './pages/RegisterPage.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -17,8 +18,8 @@ const router = createRouter({
       component: HomePage,
     },
     {
-      path: '/advice',
-      component: AdvicePage,
+      path: '/advices',
+      component: AdvicesPage,
     },
     {
       path: '/profile',
@@ -27,6 +28,10 @@ const router = createRouter({
     {
       path: '/login',
       component: LoginPage,
+    },
+    {
+      path: '/register',
+      component: RegisterPage,
     },
   ],
 });

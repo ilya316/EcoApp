@@ -13,27 +13,17 @@
         <div class="field_wrap">
             <input class="field" type="text" id="password" name="password" placeholder="Пароль">
         </div>
-        <input class="button" type="submit" value="Войти">
-        <div class="reg_link">
-            <p class="link_text">Нет аккаунта?</p>
-            <a href="register">Зарегистрируйся</a>
+        <label for="confirm_password" class="visually-hidden">Подтвердить пароль</label>
+        <div class="field_wrap">
+            <input class="field" type="text" id="confirm_password" name="confirm_password" placeholder="Подтвердить пароль">
         </div>
+        <input class="button" type="submit" value="Зарегистрироваться">
     </form>
 </template>
 
 <style scoped>
 .heading {
     font-size: 1.5rem;
-}
-
-.reg_link {
-    display: flex;
-    gap: 6px;
-}
-
-a {
-    color: var(--help-color);
-    text-decoration: underline;
 }
 
 form {

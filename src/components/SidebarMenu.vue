@@ -20,7 +20,7 @@ import { RouterLink } from 'vue-router';
       </RouterLink>
     </li>
     <li>
-      <RouterLink to="/advice" @click="$emit('toggle')">
+      <RouterLink to="/advices" @click="$emit('toggle')">
         <AdviceIcon />
         <p>Советы по утилизации</p>
       </RouterLink>
@@ -29,6 +29,12 @@ import { RouterLink } from 'vue-router';
       <RouterLink to="/export" @click="$emit('toggle')">
         <ExportIcon />
         <p>Компании по вывозу мусора</p>
+      </RouterLink>
+    </li>
+    <li>
+      <RouterLink to="/tasks" @click="$emit('toggle')">
+        <AdviceIcon />
+        <p>Полезные привычки</p>
       </RouterLink>
     </li>
   </ul>
@@ -48,18 +54,33 @@ import { RouterLink } from 'vue-router';
   height: 100%;
   width: calc(100% - 48px);
   background-color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
 }
 
 .active > .sidebar {
   transform: translate(0);
 }
 
-.menu.active {
-
+li:first-child {
+  margin-top: 12px;
 }
 
 a {
+  margin-left:6px ;
   display: flex;
+  align-items: center;
   text-decoration: none;
+  height: 48px;
+  width: calc(100% - 12px);
+  box-sizing: border-box;
+  background-color: var(--help-color);
+  border-radius: 6px;
+  border: 1px solid var(--text-color);
+  padding: 12px;
+  gap: 12px;
+  font-weight: 700;
 }
 </style>
