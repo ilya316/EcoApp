@@ -6,6 +6,7 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from './pages/HomePage.vue';
 import AdvicesPage from './pages/AdvicesPage.vue';
+import AdvicePage from './pages/AdvicePage.vue';
 import ProfilePage from './pages/ProfilePage.vue';
 import LoginPage from './pages/LoginPage.vue';
 import RegisterPage from './pages/RegisterPage.vue';
@@ -21,6 +22,12 @@ const router = createRouter({
     {
       path: '/advices',
       component: AdvicesPage,
+    },
+    {
+      path: '/advices/:id',
+      name:'advice',
+      props: true,
+      component: AdvicePage,
     },
     {
       path: '/profile',

@@ -50,7 +50,7 @@ function filteredList() {
     
   <div class="wrapper">
       <div class="card" v-for="item in filteredList()">
-          <AdviceCard :imagepath="item.image" :heading="item.heading" :text="item.text"/>
+          <AdviceCard :imagepath="item.image" :heading="item.heading" :text="item.text.slice(0,120)+'...'"/>
       </div>
   </div>
 </template>

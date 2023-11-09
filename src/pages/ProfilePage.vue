@@ -2,6 +2,7 @@
 import StatsAir from '../components/icons/StatsAir.vue';
 import StatsGarbage from '../components/icons/StatsGarbage.vue';
 import StatsWater from '../components/icons/StatsWater.vue';
+import { RouterLink } from 'vue-router';
 const stats = {'air':'10','garbage':'10','water':'30'};
 const achievements = [
     {
@@ -64,7 +65,9 @@ const achievements = [
                 </div>
             </li>
         </ul>
-        <a href="achievements" class="view__all">Посмотреть все...</a>
+        <RouterLink to="/achievements" class="view__all">
+            <p style="color: var(--help-color);">Посмотреть все...</p>
+        </RouterLink>
     </section>
 </template>
 

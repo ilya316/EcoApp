@@ -13,12 +13,14 @@ defineProps({
       <p class="heading">{{ heading }}</p>
       <p class="text">{{ text }}</p>
     </div>
-    <a href="/"></a>
+    <RouterLink :to="{ name: 'advice', params: { id: heading }}" class="view">
+      <p>Посмотреть советы</p>
+    </RouterLink>
   </div>
 </template>
 
 <style scoped>
-  a {
+  .view {
       position: absolute;
       inset: 0;
       opacity: 0;
