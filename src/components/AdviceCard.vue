@@ -9,15 +9,22 @@ defineProps({
 <template>
   <div class="card">
     <img :src="imagepath" alt="test">
-    <div class="textw">
+    <div>
       <p class="heading">{{ heading }}</p>
       <p class="text">{{ text }}</p>
     </div>
+    <a href="/"></a>
   </div>
 </template>
 
 <style scoped>
+  a {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
   .card { 
+    position: relative;
     height: 96px;
     width: 100%;
     border-radius: 6px;

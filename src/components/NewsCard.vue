@@ -2,6 +2,7 @@
 defineProps({
   imagepath: String,
   text: String,
+  url: String,
 })
 </script>
 
@@ -9,10 +10,17 @@ defineProps({
   <div>
     <img :src="imagepath" alt="test">
     <p>{{ text }}</p>
+    <a :href="url">Посмотреть новость</a>
   </div>
 </template>
 
 <style scoped>
+  a {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+  }
+
   img { 
     object-fit: cover;
     height:100%;
