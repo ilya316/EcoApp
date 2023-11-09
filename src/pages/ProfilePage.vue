@@ -64,7 +64,7 @@ const achievements = [
                 </div>
             </li>
         </ul>
-        <p class="view__all">Посмотреть все...</p>
+        <a href="achievements" class="view__all">Посмотреть все...</a>
     </section>
 </template>
 
@@ -140,14 +140,16 @@ span {
 .achievement {
     display: flex;
     gap: 12px;
-    margin-top: 6px;
+    margin: 6px 12px;
 }
 
 .view__all {
+    display: block;
+    width: fit-content;
     font-size: 1rem;
     font-weight: 700;
     text-align: center;
-    margin-top: 6px;
+    margin: 0 auto;
     color: var(--help-color);
 }
 

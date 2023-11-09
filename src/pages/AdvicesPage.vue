@@ -34,14 +34,25 @@ const cards = [
     "image": "/src/assets/testimage.png"
   }
 ];
+
+function filteredList() {
+  return cards.filter((card) =>
+    card['heading'].toLowerCase().includes(input.value.toLowerCase())
+  );
+}
+
 </script>
 
 <template>
-    <div class="wrapper">
-        <div class="card" v-for="item in cards">
-            <AdviceCard :imagepath="item.image" :heading="item.heading" :text="item.text"/>
-        </div>
-    </div>
+  <div class="search__wrap">
+    <input type="text" v-model="input" placeholder="Что вы хотите выбросить?" />
+  </div>
+    
+  <div class="wrapper">
+      <div class="card" v-for="item in filteredList()">
+          <AdviceCard :imagepath="item.image" :heading="item.heading" :text="item.text"/>
+      </div>
+  </div>
 </template>
 
 <style scoped>
@@ -53,4 +64,25 @@ const cards = [
     max-width: calc(100% - 24px);
     margin: 6px auto 0;
 }
+
+.search__wrap {
+  height: 48px;
+  width: calc(100% - 24px);
+  margin: 6px 12px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  border: 5px solid var(--main-color);
+  background-color: var(--main-color);
+}
+input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--main-color);
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 0;
+  text-align: center;
+  font-size: 1rem;
+}
+
 </style>

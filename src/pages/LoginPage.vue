@@ -41,7 +41,7 @@ form {
     flex-direction: column;
     align-items: center;
     gap: 6px;
-    margin-top: calc(50vh - 50%);
+    margin-top: calc(50vh - 168px);
 }
 .field {
     width: 100%;

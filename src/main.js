@@ -9,6 +9,7 @@ import AdvicesPage from './pages/AdvicesPage.vue';
 import ProfilePage from './pages/ProfilePage.vue';
 import LoginPage from './pages/LoginPage.vue';
 import RegisterPage from './pages/RegisterPage.vue';
+import AchievementsPage from './pages/AchievementsPage.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -32,6 +33,10 @@ const router = createRouter({
     {
       path: '/register',
       component: RegisterPage,
+    },
+    {
+      path: '/achievements',
+      component: AchievementsPage,
     },
   ],
 });

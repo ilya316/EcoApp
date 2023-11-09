@@ -28,7 +28,7 @@ header {
   padding: 12px;
   background-color: var(--main-color);
 }
-.menu, .profile, .logo {
+.menu, .profile, .logo, nav {
   height: 24px;
 }
 
