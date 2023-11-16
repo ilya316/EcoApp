@@ -1,54 +1,36 @@
 <script setup>
+import { onMounted, ref } from "vue";
+import axios from "axios"
 const props = defineProps({
   id: String,
 })
-const cards = [
-  {
-    "heading": "Картон",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
-  },
-  {
-    "heading": "Журналы",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
-  },
-  {
-    "heading": "Стекло",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
-  },
-  {
-    "heading": "Чашки",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
-  },
-  {
-    "heading": "Стаканы",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
-  },
-  {
-    "heading": "Металл",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
+let data = ref(null);
+onMounted(() => {
+    try {
+      axios.get('http://127.0.0.1:8000/wast_examples/').then(response => {data.value = findcard(response.data);})
+      
+    } catch (error) {
+      console.error('Ошибка: ', error);
   }
-];
-function findcard() {
-  return cards.find((card) =>
-    card['heading'].toLowerCase().includes(props.id.toLowerCase())
+})
+
+function findcard(data) {
+  console.log()
+  return data.find((card) =>
+    card['name'].toLowerCase().includes(props.id.toLowerCase())
   );
 }
-console.log(findcard());
+
+
 </script>
 
 <template>
-    <div class="wrapper">
+    <div class="wrapper" v-if="data">
         <div class="img__wrap">
-            <img :src="findcard().image" alt="Пример мусора">
+            <img src="/src/assets/testimage.png" alt="Пример мусора">
         </div>
-        <p class="heading">{{findcard().heading}}</p>
-        <p class="text">{{findcard().text}}</p>
+        <p class="heading">{{data.name}}</p>
+        <p class="text">{{data.description}}</p>
     </div>
 </template>
 

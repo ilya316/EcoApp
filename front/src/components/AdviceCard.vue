@@ -9,7 +9,7 @@ defineProps({
 <template>
   <div class="card">
     <img :src="imagepath" alt="test">
-    <div>
+    <div class="text_wrap">
       <p class="heading">{{ heading }}</p>
       <p class="text">{{ text }}</p>
     </div>
@@ -49,10 +49,11 @@ defineProps({
     font-weight: 700;
   }
   .text {
-    height: 59px;
-    overflow: hidden;
     font-size: 0.75rem;
     margin-top: 6px;
-    box-sizing: border-box;
+    line-height: 1.25;
+  }
+  .text_wrap {
+    overflow: hidden;
   }
 </style>
