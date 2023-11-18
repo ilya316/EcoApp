@@ -11,6 +11,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         table_name =  kwargs["table_name"]
+        if(table_name == "site"):
+            WasteSite.objects.all().delete()
 
         
 
