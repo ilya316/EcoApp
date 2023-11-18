@@ -17,4 +17,4 @@ class WastExampleSerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:
         model = WasteExample
-        fields = ['name', 'description', 'waste_type']
+        fields = ['name', 'description', 'waste_type', 'photo']

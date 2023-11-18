@@ -1,4 +1,8 @@
 from django.db import models
+from django.core.files.storage import FileSystemStorage
+from django.conf import settings
+
+upload_storage = FileSystemStorage(location=settings.STATIC_ROOT, base_url='/static')
 
 class WasteTypes(models.Model):
     type = models.CharField(verbose_name="Type name", max_length=100, default="type")
@@ -22,7 +26,7 @@ class WasteSite(models.Model):
 class WasteExample(models.Model):
     name = models.CharField(verbose_name="Wast name", max_length=100)
     waste_type = models.ForeignKey(WasteTypes, on_delete=models.CASCADE, null=True)
-    #photo = models.ImageField(verbose_name="Waste image", null=True, blank=True)
+    photo = models.ImageField(verbose_name="Waste image", null=True, blank=True, upload_to="static/images")
     description = models.TextField(verbose_name="Desc")
 
     def __str__(self):

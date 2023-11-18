@@ -1,9 +1,7 @@
 from rest_framework import routers
 
-from Wastes.views import WastSitesViewSet, WasteExampleViewSet
+from Wastes.views import WastSitesViewSet, WasteExampleViewSet, WasteTypesViewSet
 
-wast_site_router = routers.SimpleRouter()
-wast_site_router.register(r'wast_sites', WastSitesViewSet, basename="site")
-
-wast_example_router = routers.SimpleRouter()
-wast_example_router.register(r'wast_examples', WasteExampleViewSet, basename="example")
+wastes_router = routers.SimpleRouter()
+wastes_router.register(r'sites', WastSitesViewSet, basename="site")
+wastes_router.register(r'examples', WasteExampleViewSet, basename="example")

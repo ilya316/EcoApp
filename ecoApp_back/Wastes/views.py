@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 
 from Wastes.models import WasteSite, WasteTypes, WasteExample
-from Wastes.serializer import WastSirtesSerializer, WastExampleSerializer
+from Wastes.serializer import WastSirtesSerializer, WastExampleSerializer, WasteTypesSerializer
 
 class WastSitesViewSet(viewsets.ViewSet):
     def list(self, request):
@@ -19,6 +19,8 @@ class WasteExampleViewSet(viewsets.ViewSet):
         serializer = WastExampleSerializer(queryset, many=True)
         return Response(serializer.data)
 
-def get_wasts_types(request):
-    _content = WasteTypes.objects.get()
-    return HttpResponse(content=_content)
+class WasteTypesViewSet(viewsets.ViewSet):
+    def list(self, request):
+        queryset = WasteTypes.objects.all()
+        serializer = WasteTypesSerializer
+        return Response(serializer.data)

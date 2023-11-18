@@ -14,12 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from Wastes.router import wast_site_router as WastesRouter
-from Wastes.router import wast_example_router as WastesExsRouter
+from django.urls import include, path
+from Wastes.router import wastes_router
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('wastes/', include((wastes_router.urls, 'wastes'))),
 ]
 
-urlpatterns += WastesRouter.urls + WastesExsRouter.urls
+urlpatterns += staticfiles_urlpatterns()
