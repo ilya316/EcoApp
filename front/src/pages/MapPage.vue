@@ -2,9 +2,11 @@
 import { onMounted, ref } from "vue";
 import axios from "axios"
 let data = ref(null);
+
 onMounted(() => {
     try {
-      axios.get('http://127.0.0.1:8000/wast_sites/').then(response => {data.value = getcoords(response.data);})
+
+      axios.get('http://127.0.0.1:8000/wastes/sites/').then(response => {data.value = getcoords(response.data);})
   } catch (error) {
       console.error('Ошибка: ', error);
   }
