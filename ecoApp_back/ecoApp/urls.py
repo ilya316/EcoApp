@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from Wastes.router import wastes_router
+from authentication.router import auth_router
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('wastes/', include((wastes_router.urls, 'wastes'))),
+    path('auth/', include((auth_router.urls, 'auth'))),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -2,7 +2,6 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import geoposition.fields
 
 
 class Migration(migrations.Migration):
@@ -35,7 +34,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='wastesite',
             name='geo_pos',
-            field=geoposition.fields.GeopositionField(default=(111, 11), max_length=42),
+            field=models.IntegerField(),
             preserve_default=False,
         ),
         migrations.RemoveField(
