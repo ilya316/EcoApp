@@ -6,7 +6,7 @@ let input = ref("");
 let data = ref(null);
 onMounted(() => {
     try {
-      axios.get('http://127.0.0.1:8000/wast_examples/').then(response => {data.value = response.data})
+      axios.get('http://127.0.0.1:8000/wastes/examples/').then(response => {data.value = response.data})
   } catch (error) {
       console.error('Ошибка: ', error);
   }

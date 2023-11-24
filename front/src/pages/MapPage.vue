@@ -4,7 +4,7 @@ import axios from "axios"
 let data = ref(null);
 onMounted(() => {
     try {
-      axios.get('http://127.0.0.1:8000/wast_sites/').then(response => {data.value = getcoords(response.data);})
+      axios.get('http://127.0.0.1:8000/wastes/sites/').then(response => {data.value = getcoords(response.data);})
   } catch (error) {
       console.error('Ошибка: ', error);
   }
@@ -25,6 +25,7 @@ function getcoords(data) {
    <GMapMap
       :center="{lat: 55.751244, lng: 37.618423}"
       :zoom="15"
+      :icon="'https://cdn0.iconfinder.com/data/icons/ecology-68/64/recycle-bin-garbage-trash-1024.png'"
       map-type-id="terrain"
       class="map"
   >
