@@ -1,43 +1,20 @@
 <script setup>
 import AdviceCard from "../components/AdviceCard.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import axios from "axios"
 let input = ref("");
-const cards = [
-  {
-    "heading": "Картон",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
-  },
-  {
-    "heading": "Журналы",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
-  },
-  {
-    "heading": "Стекло",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
-  },
-  {
-    "heading": "Чашки",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
-  },
-  {
-    "heading": "Стаканы",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
-  },
-  {
-    "heading": "Металл",
-    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus suscipit placeat nam expedita labore modi recusandae, ut magnam. Dicta, iure enim. Provident at amet maiores tempore magnam sunt eius molestias.",
-    "image": "/src/assets/testimage.png"
+let data = ref(null);
+onMounted(() => {
+    try {
+      axios.get('http://127.0.0.1:8000/wastes/examples/').then(response => {data.value = response.data})
+  } catch (error) {
+      console.error('Ошибка: ', error);
   }
-];
+})
 
 function filteredList() {
-  return cards.filter((card) =>
-    card['heading'].toLowerCase().includes(input.value.toLowerCase())
+  return data.value.filter((card) =>
+    card['name'].toLowerCase().includes(input.value.toLowerCase())
   );
 }
 
@@ -49,8 +26,8 @@ function filteredList() {
   </div>
     
   <div class="wrapper">
-      <div class="card" v-for="item in filteredList()">
-          <AdviceCard :imagepath="item.image" :heading="item.heading" :text="item.text.slice(0,120)+'...'"/>
+      <div class="card" v-if="data" v-for="item in filteredList()">
+          <AdviceCard imagepath="/src/assets/testimage.png" :heading="item.name" :text="item.description"/>
       </div>
   </div>
 </template>
